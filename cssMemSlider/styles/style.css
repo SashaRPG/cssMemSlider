@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(77, 74, 74);
+}
+
+.wrapper {
+    height: 400px;
+    margin: 50px auto 0;
+    position: relative;
+    width: 750px;
+}
+
+.wrapper > input {
+    display: none;
+}
+
+.slider__images {
+    border-radius: 15px;
+	height: inherit;
+	overflow: hidden;
+	position: relative;
+	width: inherit;
+	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.slides {
+	height: inherit;
+	opacity: 0;
+    transform: rotate(0.5turn);
+	position: absolute;
+	width: inherit;
+	z-index: 0;
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+.slideOne {
+    background-image: url(../img/1.jpg); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+}
+.slideTwo { 
+    background-image: url(../img/2.jpg); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+}
+.slideThree { 
+    background-image: url(../img/3.jpg); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+}
+.slideFour { 
+    background-image: url(../img/4.jpg); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+}
+
+.buttons__controls {
+    display: flex;
+}
+
+#first:checked ~ .slider__images > .slideOne,
+#second:checked ~ .slider__images > .slideTwo,
+#third:checked ~ .slider__images > .slideThree,
+#fourth:checked ~ .slider__images > .slideFour {
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+
+.wrapper label {
+    order: 2;
+	cursor: pointer;
+	display: inline-block;
+	height: 10px;
+	margin: 25px 12px 0 16px;
+	position: relative;
+	width: 10px;
+	border-radius: 50%;
+	transition: background ease-in-out .5s;
+}
+
+.wrapper label:hover, 
+#first:checked ~ .buttons__controls label:nth-of-type(1),
+#second:checked ~ .buttons__controls label:nth-of-type(2),
+#third:checked ~ .buttons__controls label:nth-of-type(3),
+#fourth:checked ~ .buttons__controls label:nth-of-type(4) {
+	background: rgb(254, 244, 244);
+}
+
+.wrapper label:after {
+	border: 2px solid rgb(254, 244, 244);
+	content: " ";
+	display: block;
+	height: 12px;
+	left: -4px;
+	position: absolute;
+	top: -4px;
+	width: 12px;
+	border-radius: 50%;
+}
